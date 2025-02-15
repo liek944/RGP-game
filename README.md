@@ -1,1 +1,1 @@
-# RGP-fame
+# RPS-game
