@@ -1,5 +1,9 @@
-// Define the choices for the game
+// the choices for the game
 const choices = ["Rock", "Paper", "Scissors"];
+
+// Initialize score variables
+let humanScore = 0; // human player's score
+let computerScore = 0; // the computer's score
 
 // Function to generate a random integer between 0 and max-1
 function getRandomInt(max) {
@@ -16,26 +20,26 @@ function getRandomChoice() {
 function getHumanChoice() {
   let userInput;
 
-  // Keep asking for input until a valid choice is entered
+
   while (true) {
     userInput = prompt("Enter your choice: Rock, Paper, or Scissors").trim();
 
-    // Convert the input to lowercase for case-insensitive comparison
+
     userInput = userInput.toLowerCase();
 
-    // Check if the input is valid
+  
     if (userInput === "rock" || userInput === "paper" || userInput === "scissors") {
-      break; // Exit the loop if the input is valid
+      break; 
     } else {
       alert("Invalid choice! Please enter Rock, Paper, or Scissors.");
     }
   }
 
-  // Capitalize the first letter of the choice (e.g., "rock" → "Rock")
+
   return userInput.charAt(0).toUpperCase() + userInput.slice(1);
 }
 
-// Function to determine the winner
+// Function to determine the winner and update scores
 function determineWinner(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
     return "It's a tie!";
@@ -44,16 +48,22 @@ function determineWinner(playerChoice, computerChoice) {
     (playerChoice === "Paper" && computerChoice === "Rock") ||
     (playerChoice === "Scissors" && computerChoice === "Paper")
   ) {
+    humanScore++; 
     return "You win!";
   } else {
+    computerScore++; 
     return "You lose!";
   }
 }
 
-// Play the game
+
 const humanChoice = getHumanChoice();
 const computerChoice = getRandomChoice();
 
 console.log(`You chose: ${humanChoice}`);
 console.log(`Computer chose: ${computerChoice}`);
 console.log(determineWinner(humanChoice, computerChoice));
+
+// Display the scores
+console.log(`Your score: ${humanScore}`);
+console.log(`Computer's score: ${computerScore}`);
