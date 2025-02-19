@@ -23,11 +23,11 @@ function getRandomChoice() {
 
 // Function to play a single round
 function playRound(humanChoice) {
-  let computerChoice = getRandomChoice(); // Changed to let
+  let computerChoice = getRandomChoice(); 
 
   // Convert choices to lowercase for case-insensitive comparison
   const humanChoiceLower = humanChoice.toLowerCase(); // Store in new variable
-  computerChoice = computerChoice.toLowerCase(); // Now we can modify computerChoice
+  computerChoice = computerChoice.toLowerCase(); 
 
   // Determine the winner and update the result text
   if (humanChoiceLower === computerChoice) {
