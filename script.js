@@ -23,25 +23,25 @@ function getRandomChoice() {
 
 // Function to play a single round
 function playRound(humanChoice) {
-  const computerChoice = getRandomChoice();
+  let computerChoice = getRandomChoice(); // Changed to let
 
-  // Convert humanChoice to lowercase for case-insensitive comparison
-  humanChoice = humanChoice.toLowerCase();
-  computerChoice = computerChoice.toLowerCase();
+  // Convert choices to lowercase for case-insensitive comparison
+  const humanChoiceLower = humanChoice.toLowerCase(); // Store in new variable
+  computerChoice = computerChoice.toLowerCase(); // Now we can modify computerChoice
 
   // Determine the winner and update the result text
-  if (humanChoice === computerChoice) {
+  if (humanChoiceLower === computerChoice) {
     resultText.textContent = "It's a tie!";
   } else if (
-    (humanChoice === "rock" && computerChoice === "scissors") ||
-    (humanChoice === "paper" && computerChoice === "rock") ||
-    (humanChoice === "scissors" && computerChoice === "paper")
+    (humanChoiceLower === "rock" && computerChoice === "scissors") ||
+    (humanChoiceLower === "paper" && computerChoice === "rock") ||
+    (humanChoiceLower === "scissors" && computerChoice === "paper")
   ) {
-    humanScore++;
-    resultText.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
+    humanScore++; // Increment player's score
+    resultText.textContent = `You win! ${humanChoiceLower} beats ${computerChoice}.`;
   } else {
-    computerScore++;
-    resultText.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
+    computerScore++; // Increment computer's score
+    resultText.textContent = `You lose! ${computerChoice} beats ${humanChoiceLower}.`;
   }
 
   // Update the scores display

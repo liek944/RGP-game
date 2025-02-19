@@ -1,0 +1,8 @@
+.results {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  #scores {
+    font-weight: bold; /* Make the scores stand out */
+  }
